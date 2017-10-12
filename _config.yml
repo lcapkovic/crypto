@@ -8,7 +8,7 @@ title:               Poole
 tagline:             The Jekyll Butler
 url:                 http://lcapkovic.github.io/crypto
 paginate:            1
-baseurl:             ""
+baseurl:             "/crypto"
 
 # Assets
 #
