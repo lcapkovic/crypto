@@ -4,11 +4,26 @@ layout: default
 
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }}</time>
+  {% if page.problemId %}
+  <div id="submit-counter" class="submit-counter">Total Submissions: 0, Correct: 0</div>
+  {% endif %}
+  <!-- <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }}</time> -->
   {{ content }}
+  {% if page.problemId %}
+  <hr>
+  <h3>Ready to solve? Input your answer:</h3>
+  <div class="answer-container">
+      <input id="answer-input" class="answer-element">
+      <button id="answer-submit" class="answer-element button">Submit</button>
+      <div id="answer-status" class="answer-status-correct">
+          CORRECT
+      </div>
+    </div>
+  
+  {% endif %}
 </article>
 
-{% if site.related_posts != empty %}
+<!-- {% if site.related_posts != empty %}
 <aside class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
@@ -16,7 +31,7 @@ layout: default
       <li>
         <h3>
           <a href="{{ site.baseurl }}{{ post.url }}">
-            {{ post.title }}
+            {{ post.title }}{{post.blabla}}
             <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></small>
           </a>
         </h3>
@@ -24,4 +39,14 @@ layout: default
     {% endfor %}
   </ul>
 </aside>
+{% endif %} -->
+
+{% if page.problemId %}
+<script type="text/javascript">
+  document.getElementById("answer-submit").addEventListener("click", function() {
+    document.getElementById("answer-status").className = "answer-status-incorrect";
+    document.getElementById("answer-status").textContent = "INCORRECT :(";
+  });
+  document.getElementById("submit-counter").textContent = "Total Submissions: 42, Correct: 1"
+</script>
 {% endif %}
