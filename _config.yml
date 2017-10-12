@@ -4,8 +4,8 @@
 permalink:           pretty
 
 # Setup
-title:               Marko and Miro's cryptography playground
-tagline:             just solve it!
+title:               Cipher Hunt
+tagline:             can you crack the code?
 url:                 http://lcapkovic.github.io/crypto
 paginate:            1
 baseurl:             "/crypto"
