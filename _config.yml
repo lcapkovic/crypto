@@ -4,8 +4,8 @@
 permalink:           pretty
 
 # Setup
-title:               Poole
-tagline:             The Jekyll Butler
+title:               Marko and Miro's cryptography playground
+tagline:             just solve it!
 url:                 http://lcapkovic.github.io/crypto
 paginate:            1
 baseurl:             "/crypto"
@@ -19,14 +19,13 @@ sass:
 
 # About/contact
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  name:              Lukas Capkovic
+  url:               https://github.com/lcapkovic
 
 # Custom vars
-version:             2.0.0
+version:             1.0
 github:
-  repo:              https://github.com/poole/poole
+  repo:              https://github.com/lcapkovic/crypto
 
 gems: [jekyll-paginate, jekyll-gist]
 paginate: 5
