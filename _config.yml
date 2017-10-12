@@ -28,5 +28,5 @@ github:
   repo:              https://github.com/lcapkovic/crypto
 
 gems: [jekyll-paginate, jekyll-gist]
-paginate: 5
+paginate: 20
 paginate_path: "page:num"
