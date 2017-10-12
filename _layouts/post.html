@@ -12,8 +12,9 @@ layout: default
   <!-- <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }}</time> -->
   {{ content }}
   {% if page.problemId %}
+  {% if page.problemId != 15 %}
   <hr>
-  <h3>Ready to solve? Input your answer:</h3>
+  <h3> Cracked? Input your answer: </h3>
   <div class="answer-container">
       <input id="answer-input" class="answer-element">
       <button id="answer-submit" class="answer-element button">Submit</button>
@@ -21,7 +22,7 @@ layout: default
           CORRECT
       </div>
     </div>
-
+  {% endif %}
   {% endif %}
 </article>
 
