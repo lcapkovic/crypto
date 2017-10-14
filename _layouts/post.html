@@ -26,6 +26,7 @@ layout: default
 <script type="text/javascript">
   var problemId = parseInt("{{ page.problemId }}") - 1;
 
+  // ADD THE SUBMIT BUTTON LISTENER
   document.getElementById("answer-submit").addEventListener("click", function() {
     var answer = document.getElementById("answer-input").value;
     var url = "http://178.62.124.242/check_answer";
@@ -56,11 +57,27 @@ layout: default
         }
     }
     http.send(null);
-
-
-    // document.getElementById("answer-status").className = "answer-status-incorrect";
-    // document.getElementById("answer-status").textContent = "INCORRECT :(";
   });
-  document.getElementById("submit-counter").textContent = "Total Submissions: 42, Correct: 1"
+
+  // FETCH SUBMISSION COUNTS
+  var url = "http://178.62.124.242/get_submissions";
+  var params = "problem=" + encodeURIComponent(problemId);
+  var http = new XMLHttpRequest();
+
+  http.open("GET", url+"?"+params, true);
+  http.onreadystatechange = function()
+  {
+      if(http.readyState == 4 && http.status == 200) {
+          var respText = http.responseText;
+          var counts = respText.split(" ");
+          
+          var total = counts[0];
+          var correct = counts[1];
+
+          document.getElementById("submit-counter").textContent = "Total Submissions: " + total + ", Correct: " + correct
+          }
+  }
+  http.send(null);
+  
 </script>
 {% endif %}
