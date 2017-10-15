@@ -28,7 +28,7 @@ layout: default
 
   // ADD THE SUBMIT BUTTON LISTENER
   document.getElementById("answer-submit").addEventListener("click", function() {
-    var answer = document.getElementById("answer-input").value;
+    var answer = document.getElementById("answer-input").value.trim();
     var url = "http://178.62.124.242/check_answer";
     var params = "problem=" + encodeURIComponent(problemId) + "&answer=" + encodeURIComponent(answer);
     var http = new XMLHttpRequest();
