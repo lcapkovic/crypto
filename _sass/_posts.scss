@@ -65,6 +65,7 @@
   font-size: inherit;
   box-sizing: border-box;
   resize: none;
+  -webkit-appearance: none;
 }
 
 .button {
@@ -93,6 +94,7 @@ input {
   font-size: inherit;
   box-sizing: border-box;
   border: 1px solid #e7e7e7;
+  -webkit-appearance: none;
 }
 
 .answer-container {
