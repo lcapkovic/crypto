@@ -36,25 +36,33 @@ layout: default
     http.open("GET", url+"?"+params, true);
     http.onreadystatechange = function()
     {
-        if(http.readyState == 4 && http.status == 200) {
-            var respText = http.responseText;
-            var statusElement = document.getElementById("answer-status");
-            var hintElement = document.getElementById("answer-hint");
-
-            if(respText == "INCORRECT"){
-              statusElement.className = "answer-status-incorrect";
-              statusElement.textContent = "INCORRECT :(";
-              statusElement.style.display = "inline-block";
-              hintElement.style.display = "none";
-            }else {
-              statusElement.className = "answer-status-correct";
-              statusElement.textContent = "CORRECT!";
-              statusElement.style.display = "inline-block";
-              hintElement.style.display = "inline-block";
-              hintElement.textContent = respText;
-              hintElement.style.height = hintElement.scrollHeight+10+'px';
-            }
-        }
+      var statusElement = document.getElementById("answer-status");
+      var hintElement = document.getElementById("answer-hint");
+      if (http.readyState == 4 && http.status == 200) {
+          var respText = http.responseText;
+          
+          if (respText == "INCORRECT"){
+            statusElement.className = "answer-status-incorrect";
+            statusElement.textContent = "INCORRECT :(";
+            statusElement.style.display = "inline-block";
+            hintElement.style.display = "none";
+          } else {
+            statusElement.className = "answer-status-correct";
+            statusElement.textContent = "CORRECT!";
+            statusElement.style.display = "inline-block";
+            hintElement.style.display = "inline-block";
+            hintElement.textContent = respText;
+            hintElement.style.height = hintElement.scrollHeight+10+'px';
+          }
+      }else if(http.status == 429){
+        statusElement.className = "answer-status-chill"
+        statusElement.textContent = "Chill. You're submitting too fast."
+        statusElement.style.display = "inline-block";
+        hintElement.style.display = "none";
+      }else {
+        statusElement.style.display = "none";
+        hintElement.style.display = "none";
+      }
     }
     http.send(null);
   });
